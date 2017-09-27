@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>        .rate {
+            width: 100%;
+            border: 1px solid #c1272d;
+            border-radius: 5px;
+            margin: 8px auto 2px;
+            display: table;
+            box-sizing: border-box;
+            box-sizing: border-box;
+            /* padding-bottom: 4px; */
+            /* margin-bottom: 8px; */
+            background: #e4e4e4;
+            padding: 7px 4px 9px;
+            box-sizing: border-box;
+        }
+        
+        .chat_exp {
+            color: crimson;
+            padding-top: 3px;
+            /* float: left; */
+            display: inline-block;
+            text-align: right;
+            width: 33%;
+            /* text-align: center; */
+            vertical-align: middle;
+        }
+        
+        .rating>span:hover:before {
+            content: "";
+            position: absolute;
+        }
+        
+        .star1,
+        .star2,
+        .star3,
+        .star4,
+        .star5 {
+            font-size: 22px;
+            cursor: pointer;
+            color: red;
+        }
+        
+        .rating {
+            display: inline-block;
+            text-align: center;
+            width: 46%;
+            /* padding-top: 8px; */
+            vertical-align: middle;
+        }
+        
+        .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+        
+        .rating>span {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+        }
+        
+        .rating>span:hover:before,
+        .rating>span:hover~span:before {
+            content: "\2605";
+            position: absolute;
+            color: orange;
+        }
+        
+        .rated>.st:before,
+        .rated>.st~.st1:before {
+            content: "\2605";
+            position: absolute;
+            color: orange;
+        }
+        
+        .star_sub {
+            margin-top: 2px !important;
+            background: #c1272d !important;
+            border: none !important;
+            border-radius: 5px !important;
+            color: white !important;
+            padding: 7px 12px !important;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rate">
+        <span class="chat_exp">Like it...Rate Us :</span>
+        <div class="rating rated">
+            <span class="star1">☆</span>
+            <span class="star2">☆</span>
+            <span class="star3">☆</span>
+            <span class="star4">☆</span>
+            <span class="star5">☆</span>
+        </div>
+        <input type="submit" class="star_sub">
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".star1").click(function() {
+                $(".star1,.star2,.star3,.star4,.star5").addClass("st");
+            });
+            $(".star2").click(function() {
+                $(".star2,.star3,.star4,.star5").addClass("st");
+                $(".star1").removeClass("st");
+            });
+            $(".star3").click(function() {
+                $(".star3,.star4,.star5").addClass("st");
+                $(".star1,.star2").removeClass("st");
+            });
+            $(".star4").click(function() {
+                $(".star4,.star5").addClass("st");
+                $(".star1,.star2,.star3").removeClass("st");
+            });
+            $(".star5").click(function() {
+                $(".star5").addClass("st");
+                $(".star1,.star2,.star3,.star4").removeClass("st");
+            });
+            $(".star5").click(function() {
+                $(".star5").addClass("st");
+                $(".star1,.star2,.star3,.star4").removeClass("st");
+            });
+        });
+    </script>
+</body>
+
+</html>
